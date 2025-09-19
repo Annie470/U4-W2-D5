@@ -53,7 +53,7 @@ public class Collezione {
                             throw new InputNonValido("SOLO NUMERI");
                         }
 
-                        System.out.println("Inserisci piattaforma tra ps4, ps5, xbox, pc, switch: ");
+                        System.out.println("Inserisci piattaforma tra ps1, ps4, ps5, xbox, pc, switch: ");
                         Piattaforma piattaforma;
                         try {
                             piattaforma = Piattaforma.valueOf(scanner.nextLine().toUpperCase());

@@ -8,8 +8,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Application {
+    private static final Logger logger = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args) throws NumeroGiocatoriNonConforme {
         List<Gioco> giochi = new ArrayList<>();
@@ -26,7 +29,7 @@ public class Application {
         giochi.add(g2);
         Videogioco v2= new Videogioco( "Soul Reaver", LocalDate.of(1999, 8,16), 15, Piattaforma.PS1, 0, Genere.HORROR );
         giochi.add(v2); //PROVA COSTRUTTORE SENZA ID MANUALE E CON DURATAGIOCO ERRATA -> Si setta a 1h se minore di 1
-        
+
         //System.out.println(giochi);
 
         //collezione.ricercarePerID(2, giochi);
@@ -47,6 +50,7 @@ public class Application {
             try {
                 switch (scelta){
                     case 1:
+                       // logger.info("Aggiunta nuovo gioco");
                         collezione.aggiungereElemento(giochi);
                         break;
                     case 2:
@@ -55,6 +59,7 @@ public class Application {
                             int id = Integer.parseInt(scanner.nextLine());
                             collezione.ricercarePerID(id, giochi);
                         } catch (NumberFormatException e) {
+                           // logger.warn("ID non numerico inserito"); NOOOO TIMEEEEE FOR LOGGER :(
                             throw new InputNonValido("ID solo numerico!");
                         }
                         break;
