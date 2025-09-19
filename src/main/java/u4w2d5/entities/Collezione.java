@@ -163,7 +163,7 @@ public class Collezione {
     }
 
    public void ricercarePerPrezzo(double prezzo, List<Gioco> listaGiochi){
-     List<Gioco> risultati = listaGiochi.stream().filter(gioco -> gioco.getPrezzo() <= prezzo).toList();
+     List<Gioco> risultati = listaGiochi.stream().filter(gioco -> gioco.getPrezzo() <= prezzo).sorted(Comparator.comparing(Gioco::getPrezzo)).toList();
      if (risultati.isEmpty()){
          System.out.print("Nessun gioco presente \n");
      } else {
