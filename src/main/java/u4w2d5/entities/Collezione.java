@@ -4,10 +4,7 @@ import u4w2d5.exceptions.InputNonValido;
 import u4w2d5.exceptions.NumeroGiocatoriNonConforme;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Scanner;
+import java.util.*;
 
 public class Collezione {
     private List<Gioco> giochi = new ArrayList<>();
@@ -149,6 +146,26 @@ public class Collezione {
          risultati.forEach(System.out::println);
      }
 }
+
+    public void ricercarePerGiocatori(int nGiocat, List<Gioco> listaGiochi){
+        List<GiocoTavolo> risultati = listaGiochi.stream().filter(gioco -> gioco.getClass() == GiocoTavolo.class).map(gioco -> (GiocoTavolo) gioco ).filter(giocoTavolo -> giocoTavolo.getNumeroGiocatori() == nGiocat).toList();
+        if (risultati.isEmpty()){
+            System.out.print("Nessun gioco presente \n");
+        } else {
+            risultati.forEach(System.out::println);
+        }
+    }
+
+    public void rimuovereGioco(int id, List<Gioco> listaGiochi) {
+        Iterator<Gioco> iterator = listaGiochi.iterator();
+        while (iterator.hasNext()) {
+            Gioco gioco = iterator.next();
+            if (gioco.getId() == id ) {
+                iterator.remove();
+                System.out.println(gioco.getTitolo() + " rimosso");
+            }
+        }
+    }
 
     public void setGiochi(List<Gioco> giochi) {
         this.giochi = giochi;

@@ -35,6 +35,8 @@ public class Application {
             System.out.println("1 -> AGGIUNGERE GIOCO ");
             System.out.println("2 -> RICERCA PER ID ");
             System.out.println("3 -> RICERCA PER PREZZO ");
+            System.out.println("4 -> RICERCA PER NUMERO GIOCATORI ");
+            System.out.println("5 -> RIMUOVERE GIOCO ");
             System.out.println("9 -> TERMINA ");
 
             int scelta = Integer.parseInt(scanner.nextLine());
@@ -51,6 +53,16 @@ public class Application {
                     System.out.println("Inserisci prezzo");
                     double prezzo = Double.parseDouble(scanner.nextLine());
                     collezione.ricercarePerPrezzo(prezzo, giochi);
+                    break;
+                case 4:
+                    System.out.println("Inserisci num giocatori");
+                    int nGiocat = Integer.parseInt(scanner.nextLine());
+                    collezione.ricercarePerGiocatori(nGiocat, giochi);
+                    break;
+                case 5:
+                    System.out.println("Inserisci ID");
+                    int idR = Integer.parseInt(scanner.nextLine());
+                    collezione.rimuovereGioco( idR, giochi);
                     break;
                 case 9:
                     valoreWhile = true;
