@@ -22,9 +22,11 @@ public class Application {
         giochi.add(v1);
         GiocoTavolo g1 = new GiocoTavolo(2, "Kragmortha", LocalDate.of(2007, 3,1), 25, 10,20);
         giochi.add(g1);
-
-
-        // collezione.aggiungereElemento(giochi);
+        GiocoTavolo g2 = new GiocoTavolo(3, "Talisman", LocalDate.of(1975, 11,19), 65, 6,120);
+        giochi.add(g2);
+        Videogioco v2= new Videogioco( "Soul Reaver", LocalDate.of(1999, 8,16), 15, Piattaforma.PS1, 0, Genere.HORROR );
+        giochi.add(v2); //PROVA COSTRUTTORE SENZA ID MANUALE E CON DURATAGIOCO ERRATA -> Si setta a 1h se minore di 1
+        
         //System.out.println(giochi);
 
         //collezione.ricercarePerID(2, giochi);

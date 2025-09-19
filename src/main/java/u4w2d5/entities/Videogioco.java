@@ -10,13 +10,13 @@ public class Videogioco extends Gioco{
     public Videogioco(String titolo, LocalDate annoPubblicazione, double prezzo, Piattaforma piattaforma, double durataGioco, Genere genere){
         super(titolo, annoPubblicazione, prezzo);
         this.piattaforma = piattaforma;
-        this.durataGioco=durataGioco;
+        this.durataGioco=durataGioco < 1 ? 1 : durataGioco;
         this.genere= genere;
     }
     public Videogioco(int id, String titolo, LocalDate annoPubblicazione, double prezzo, Piattaforma piattaforma, double durataGioco, Genere genere){
         super(id,titolo, annoPubblicazione, prezzo);
         this.piattaforma = piattaforma;
-        this.durataGioco=durataGioco;
+        this.durataGioco=durataGioco < 1 ? 1 : durataGioco;
         this.genere= genere;
     }
 
@@ -34,7 +34,7 @@ public class Videogioco extends Gioco{
         this.piattaforma = piattaforma;
     }
     public void setDurataGioco(double durataGioco) {
-        this.durataGioco = durataGioco;
+        this.durataGioco = durataGioco < 1 ? 1 : durataGioco;
     }
     public void setGenere(Genere genere) {
         this.genere = genere;

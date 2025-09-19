@@ -11,12 +11,12 @@ public class GiocoTavolo extends Gioco{
     public GiocoTavolo(String titolo, LocalDate annoPubblicazione, double prezzo, int numeroGiocatori, double durataPartita ) throws NumeroGiocatoriNonConforme {
         super(titolo, annoPubblicazione, prezzo);
         setNumeroGiocatori(numeroGiocatori); //avevo messo l 'if ripetuto qui, intellij mi propone di inserire direttamente il setter, funzionerà?
-        this.durataPartita= durataPartita;
+        this.durataPartita= durataPartita < 1 ? 1 : durataPartita;
     }
     public GiocoTavolo(int id, String titolo, LocalDate annoPubblicazione, double prezzo, int numeroGiocatori, double durataPartita ) throws NumeroGiocatoriNonConforme {
         super(id,titolo, annoPubblicazione, prezzo);
         setNumeroGiocatori(numeroGiocatori);
-        this.durataPartita= durataPartita;
+        this.durataPartita= durataPartita < 1 ? 1 : durataPartita;
     }
 
     public int getNumeroGiocatori() {
@@ -33,7 +33,7 @@ public class GiocoTavolo extends Gioco{
         this.numeroGiocatori = numeroGiocatori;
     }
     public void setDurataPartita(double durataPartita) {
-        this.durataPartita = durataPartita;
+        this.durataPartita = durataPartita < 1 ? 1 : durataPartita;
     }
 
     @Override

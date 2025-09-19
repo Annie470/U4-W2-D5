@@ -12,14 +12,14 @@ public abstract class Gioco {
         this.id = count++;
         this.titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;
-        this.prezzo=prezzo;
+        this.prezzo= prezzo < 1 ? 1 : prezzo; //non fa mai male un controllo in piu
     }
 
     public Gioco(int id, String titolo, LocalDate annoPubblicazione, double prezzo) { //mi serve per app cosi aggiungo almeno qualche elemento
         this.id = id;
         this.titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;
-        this.prezzo=prezzo;
+        this.prezzo= prezzo < 1 ? 1 : prezzo; //non fa mai male un controllo in piu
     }
 
     public int getId() {
@@ -42,7 +42,7 @@ public abstract class Gioco {
         this.annoPubblicazione = annoPubblicazione;
     }
     public void setPrezzo(double prezzo) {
-        this.prezzo = prezzo;
+        this.prezzo = prezzo < 1 ? 1 : prezzo;
     }
 
     @Override
