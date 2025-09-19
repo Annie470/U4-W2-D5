@@ -1,0 +1,65 @@
+package u4w2d5;
+
+import u4w2d5.entities.*;
+import u4w2d5.exceptions.NumeroGiocatoriNonConforme;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Application {
+
+    public static void main(String[] args) throws NumeroGiocatoriNonConforme {
+        List<Gioco> giochi = new ArrayList<>();
+        Collezione collezione = new Collezione(giochi);
+        Scanner scanner = new Scanner(System.in);
+
+
+        //inserisco almeno due elementi con il secondo costruttore con id senza count
+        Videogioco v1= new Videogioco(1, "MonkeyIsland", LocalDate.of(1990, 1,1), 15, Piattaforma.PC, 130, Genere.POINTCLICK  );
+        giochi.add(v1);
+        GiocoTavolo g1 = new GiocoTavolo(2, "Kragmortha", LocalDate.of(2007, 3,1), 25, 10,20);
+        giochi.add(g1);
+
+
+        // collezione.aggiungereElemento(giochi);
+        //System.out.println(giochi);
+
+        //collezione.ricercarePerID(2, giochi);
+        //FIN QUI FUNZIONA
+
+        System.out.println("INSERISCI: ");
+        boolean valoreWhile = false;
+        while (!valoreWhile) {
+            System.out.println("1 -> AGGIUNGERE GIOCO ");
+            System.out.println("2 -> RICERCA PER ID ");
+            System.out.println("3 -> RICERCA PER PREZZO ");
+            System.out.println("9 -> TERMINA ");
+
+            int scelta = Integer.parseInt(scanner.nextLine());
+            switch (scelta){
+                case 1:
+                    collezione.aggiungereElemento(giochi);
+                    break;
+                case 2:
+                    System.out.println("Inserisci ID");
+                    int id = Integer.parseInt(scanner.nextLine());
+                    collezione.ricercarePerID(id, giochi);
+                    break;
+                case 3:
+                    System.out.println("Inserisci prezzo");
+                    double prezzo = Double.parseDouble(scanner.nextLine());
+                    collezione.ricercarePerPrezzo(prezzo, giochi);
+                    break;
+                case 9:
+                    valoreWhile = true;
+                    break;
+                default: System.out.println("Scelta non valida");
+            }
+
+
+        }
+
+    }
+}
